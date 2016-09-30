@@ -1,0 +1,17 @@
+{
+  "name": "smallstache",
+  "version": "0.1.0",
+  "description": "Lightweight template engine compatible with mustache templates.",
+  "main": "Smallstache.js",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=spec/jasmine.json"
+  },
+  "devDependencies": {
+    "jasmine": "2.5.x"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/macie/smallstache",
+  "files": [
+    "Smallstache.js"
+  ]
+}
