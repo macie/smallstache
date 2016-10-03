@@ -16,4 +16,16 @@ describe('A Smallstache', function() {
 
         expect(result.template).toEqual(template);
     });
+
+    describe('should render template with', function() {
+        it('data object', function() {
+            var template = 'Do {{ who }} feel {{ how }}?';
+            var data = {who: 'I', how: 'lucky'};
+            var quote = new Smallstache(template);
+
+            var result = quote.render(data);
+
+            expect(result).toEqual('Do I feel lucky?');
+        });
+    });
 });
