@@ -1,7 +1,5 @@
 function Smallstache(source) {
-    this.template = source.match(/^[#|\.].*/g) ?
-        window.document.querySelector(source) :  // source is selector
-        source;                           // source is template
+    this.template = source;
 }
 
 Smallstache.prototype.render = function(obj) {
