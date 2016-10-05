@@ -17,8 +17,8 @@ describe('A Smallstache', function() {
         expect(result.template).toEqual(template);
     });
 
-    describe('should render template with', function() {
-        it('data object', function() {
+    describe('should render', function() {
+        it('template using data object', function() {
             var template = 'Do {{ who }} feel {{ how }}?';
             var data = {who: 'I', how: 'lucky'};
             var quote = new Smallstache(template);
@@ -26,6 +26,16 @@ describe('A Smallstache', function() {
             var result = quote.render(data);
 
             expect(result).toEqual('Do I feel lucky?');
+        });
+
+        it('template with whitespaces in tags', function() {
+            var template = 'Ring-{{ say }}-{{say}}-{{say }}-{{  say}}eringe{{ say  }}!';
+            var fox = {say: 'ding'};
+            var quote = new Smallstache(template);
+
+            var result = quote.render(fox);
+
+            expect(result).toEqual('Ring-ding-ding-ding-dingeringeding!');
         });
     });
 });

@@ -3,7 +3,7 @@ function Smallstache(source) {
 }
 
 Smallstache.prototype.render = function(obj) {
-    return this.template.replace(/{{\s*([\S|^}]+)\s*}}/g,
+    return this.template.replace(/{{\s*([^}\s]+)\s*}}/g,
         function(substring, matched) { return obj[matched] });
 };
 
