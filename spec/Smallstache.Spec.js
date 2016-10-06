@@ -37,5 +37,15 @@ describe('A Smallstache', function() {
 
             expect(result).toEqual('Ring-ding-ding-ding-dingeringeding!');
         });
+
+        it('template with partial object', function() {
+            var template = '{{ sth }} ipsum {{ else }} sit {{ what }}';
+            var filler = {sth: 'Lorem'};
+            var text = new Smallstache(template);
+
+            var result = text.render(filler);
+
+            expect(result).toEqual('Lorem ipsum {{ else }} sit {{ what }}');
+        });
     });
 });
