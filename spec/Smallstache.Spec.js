@@ -9,14 +9,6 @@ describe('A Smallstache', function() {
         expect(result.template).toEqual(template);
     });
 
-    xit('should take class selector', function() {
-        var template = '.js-list-item';
-
-        var result = new Smallstache(template);
-
-        expect(result.template).toEqual(template);
-    });
-
     describe('should render', function() {
         it('template using data object', function() {
             var template = 'Do {{ who }} feel {{ how }}?';
