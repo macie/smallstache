@@ -10,7 +10,7 @@ describe('A Smallstache', function() {
     });
 
     describe('should render', function() {
-        it('template using data object', function() {
+        it('template with text', function() {
             var template = 'Do {{ who }} feel {{ how }}?';
             var data = {who: 'I', how: 'lucky'};
             var quote = new Smallstache(template);
@@ -18,6 +18,27 @@ describe('A Smallstache', function() {
             var result = quote.render(data);
 
             expect(result).toEqual('Do I feel lucky?');
+        });
+
+        it('template with numbers', function() {
+            var template = 'e^{{ exp }} = {{ product }}';
+            var data = {exp: 2, product: 7.39};
+            var equation = new Smallstache(template);
+
+            var result = equation.render(data);
+
+            expect(result).toEqual('e^2 = 7.39');
+        });
+
+        it('template with date', function() {
+            var template = 'Now is {{ now }}';
+            var now = new Date();
+            var date = {now: now};
+            var equation = new Smallstache(template);
+
+            var result = equation.render(date);
+
+            expect(result).toEqual('Now is ' + now);
         });
 
         it('template with whitespaces in tags', function() {
