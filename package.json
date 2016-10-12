@@ -4,9 +4,10 @@
   "description": "Lightweight template engine compatible with mustache templates.",
   "main": "Smallstache.js",
   "scripts": {
-    "test": "jasmine JASMINE_CONFIG_PATH=spec/jasmine.json"
+    "test": "istanbul cover -x '**/spec/**/*.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json"
   },
   "devDependencies": {
+    "istanbul": "0.4.x",
     "jasmine": "2.5.x"
   },
   "license": "MIT",
