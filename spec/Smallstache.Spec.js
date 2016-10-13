@@ -6,57 +6,54 @@ describe('A Smallstache', function() {
 
         var result = new Smallstache(template);
 
-        expect(result.template).toEqual(template);
+        expect(result.source).toEqual(template);
     });
 
-    describe('should render', function() {
-        it('template with text', function() {
-            var template = 'Do {{ who }} feel {{ how }}?';
-            var data = {who: 'I', how: 'lucky'};
-            var quote = new Smallstache(template);
+    describe('should fill', function() {
+        var template = new Smallstache();
 
-            var result = quote.render(data);
+        it('template with text', function() {
+            template.source = 'Do {{ who }} feel {{ how }}?';
+            var data = {who: 'I', how: 'lucky'};
+
+            var result = template.fill(data);
 
             expect(result).toEqual('Do I feel lucky?');
         });
 
         it('template with numbers', function() {
-            var template = 'e^{{ exp }} = {{ product }}';
-            var data = {exp: 2, product: 7.39};
-            var equation = new Smallstache(template);
+            template.source = 'e^{{ exp }} = {{ product }}';
+            var data = {exp: 0, product: 1.001};
 
-            var result = equation.render(data);
+            var result = template.fill(data);
 
-            expect(result).toEqual('e^2 = 7.39');
+            expect(result).toEqual('e^0 = 1.001');
         });
 
         it('template with date', function() {
-            var template = 'Now is {{ now }}';
+            template.source = 'Now is {{ now }}';
             var now = new Date();
             var date = {now: now};
-            var equation = new Smallstache(template);
 
-            var result = equation.render(date);
+            var result = template.fill(date);
 
             expect(result).toEqual('Now is ' + now);
         });
 
         it('template with whitespaces in tags', function() {
-            var template = 'Ring-{{ say }}-{{say}}-{{say }}-{{  say}}eringe{{ say  }}!';
+            template.source = 'Ring-{{ say }}-{{say}}-{{say }}-{{  say}}eringe{{ say  }}!';
             var fox = {say: 'ding'};
-            var quote = new Smallstache(template);
 
-            var result = quote.render(fox);
+            var result = template.fill(fox);
 
             expect(result).toEqual('Ring-ding-ding-ding-dingeringeding!');
         });
 
         it('template with partial object', function() {
-            var template = '{{ sth }} ipsum {{ else }} sit {{ what }}';
-            var filler = {sth: 'Lorem'};
-            var text = new Smallstache(template);
+            template.source = '{{ sth }} ipsum {{ else }} sit {{ what }}';
+            var data = {sth: 'Lorem'};
 
-            var result = text.render(filler);
+            var result = template.fill(data);
 
             expect(result).toEqual('Lorem ipsum {{ else }} sit {{ what }}');
         });
