@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lightweight template engine compatible with mustache templates.",
   "main": "Smallstache.js",
   "scripts": {

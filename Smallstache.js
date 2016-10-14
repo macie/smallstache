@@ -1,14 +1,20 @@
 /*
     Smallstache - a JavaScript template engine.
 
-    Parameters:
+    Attributes:
         source (string): A string with template source.
 
     Args:
         source (string): A string with template.
 
+    Raise:
+        A TypeError when source is not a string.
 */
 function Smallstache(source) {
+    if (typeof source !== 'string') {
+        throw new TypeError('Template source must be a string');
+    }
+
     this.source = source;
 }
 
