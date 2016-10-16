@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": ["smallstache", "template", "templates", "mustache"],
   "main": "./src/Smallstache.js",
