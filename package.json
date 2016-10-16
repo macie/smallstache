@@ -1,8 +1,9 @@
 {
   "name": "smallstache",
-  "version": "0.2.1",
-  "description": "Lightweight template engine compatible with mustache templates.",
-  "main": "Smallstache.js",
+  "version": "0.2.2",
+  "description": "Lightweight template engine similar to Mustache/Handlebars.",
+  "keywords": ["smallstache", "template", "templates", "mustache"],
+  "main": "./src/Smallstache.js",
   "scripts": {
     "test": "istanbul cover -x '**/spec/**/*.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json"
   },
@@ -10,9 +11,9 @@
     "istanbul": "0.4.x",
     "jasmine": "2.5.x"
   },
-  "license": "MIT",
-  "repository": "https://github.com/macie/smallstache",
-  "files": [
-    "Smallstache.js"
-  ]
+  "files": ["./src/Smallstache.js"],
+  "repository": "https://github.com/macie/smallstache.git",
+  "bugs": "https://github.com/macie/smallstache/issues",
+  "author": "Maciej Żok",
+  "license": "MIT"
 }
