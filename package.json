@@ -1,17 +1,30 @@
 {
   "name": "smallstache",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
-  "keywords": ["smallstache", "template", "templates", "mustache"],
-  "main": "./src/Smallstache.js",
+  "keywords": [
+    "smallstache",
+    "template",
+    "templates",
+    "mustache"
+  ],
+  "main": "dist/Smallstache.js",
   "scripts": {
-    "test": "istanbul cover -x '**/spec/**/*.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json"
+    "bundle": "mkdir -p ./dist && babel --plugins babel-plugin-add-module-exports,transform-es2015-modules-umd ./src/Smallstache.js > ./dist/Smallstache.js",
+    "pretest": "mkdir -p ./spec/src && node ./tools/test_loading_helper.js",
+    "test": "istanbul cover '-x ./spec/*.Spec.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json",
+    "posttest": "rm -r ./spec/src"
   },
   "devDependencies": {
+    "babel-cli": "6.16.x",
+    "babel-plugin-add-module-exports": "0.2.x",
+    "babel-plugin-transform-es2015-modules-umd": "6.12.x",
     "istanbul": "0.4.x",
     "jasmine": "2.5.x"
   },
-  "files": ["./src/Smallstache.js"],
+  "files": [
+    "dist/Smallstache.js"
+  ],
   "repository": "https://github.com/macie/smallstache.git",
   "bugs": "https://github.com/macie/smallstache/issues",
   "author": "Maciej Żok",

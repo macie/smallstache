@@ -35,4 +35,4 @@ Smallstache.prototype.fill = function(data) {
     return this.source.replace(/{{\s*([^}\s]+)\s*}}/g, fillTemplate);
 };
 
-module.exports = Smallstache;
+export { Smallstache as default };
