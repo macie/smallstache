@@ -5,7 +5,7 @@
 var fs = require('fs');
 
 var sourceFile = './src/Smallstache.js';
-var testedFile = './spec/src/Smallstache.js';
+var testedFile = './spec/src/smallstache.js';
 
 var nativeExport = 'export { Smallstache as default };';
 var nodeExport = 'module.exports = Smallstache;';

@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": [
     "smallstache",
@@ -8,14 +8,14 @@
     "templates",
     "mustache"
   ],
-  "main": "dist/Smallstache.js",
+  "main": "dist/smallstache.js",
   "scripts": {
     "build": "npm run bundle && npm run compress",
-    "bundle": "mkdir -p ./dist && babel --plugins babel-plugin-add-module-exports,transform-es2015-modules-umd ./src/Smallstache.js > ./dist/Smallstache.js",
-    "compress": "uglifyjs --compress --mangle --source-map=./dist/Smallstache.js.map -- ./dist/Smallstache.js > ./dist/Smallstache.min.js",
-    "pretest": "mkdir -p ./spec/src && node ./tools/test_loading_helper.js",
+    "bundle": "mkdirp ./dist && babel --plugins babel-plugin-add-module-exports,transform-es2015-modules-umd ./src/Smallstache.js > ./dist/smallstache.js",
+    "compress": "uglifyjs --compress --mangle --source-map=./dist/smallstache.js.map -- ./dist/smallstache.js > ./dist/smallstache.min.js",
+    "pretest": "mkdirp ./spec/src && node ./tools/test_loading_helper.js",
     "test": "istanbul cover '-x ./spec/*.Spec.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json",
-    "posttest": "rm -r ./spec/src"
+    "posttest": "rimraf ./spec/src"
   },
   "devDependencies": {
     "babel-cli": "6.16.x",
@@ -23,6 +23,8 @@
     "babel-plugin-transform-es2015-modules-umd": "6.12.x",
     "istanbul": "0.4.x",
     "jasmine": "2.5.x",
+    "mkdirp": "0.5.x",
+    "rimraf": "2.5.x",
     "uglify-js": "2.7.x"
   },
   "files": [
