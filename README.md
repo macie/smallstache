@@ -3,14 +3,14 @@
 [![Test Coverage](https://codeclimate.com/github/macie/smallstache/badges/coverage.svg)](https://codeclimate.com/github/macie/smallstache/coverage)
 [![Code Climate](https://codeclimate.com/github/macie/smallstache/badges/gpa.svg)](https://codeclimate.com/github/macie/smallstache)
 
-A lightweight, logic-less JS template engine similar to Mustache/Handlebars. And look mummy, it has only 0.5kB minimized!
+A lightweight, logic-less JavaScript [template engine](https://en.wikipedia.org/wiki/Web_template_system) similar to [Mustache](https://mustache.github.io/)/[Handlebars](http://handlebarsjs.com/). And look mummy, it has only 0.5kB minimized!
 
 ## Features
  - Object-oriented approach
  - Very small footprint
- - No dependencies (only good old VanillaJS)
- - Fast and reliable (100% test coverage)
- - Easly debuggable (leaves original tag if can't find data)
+ - No dependencies (*only good old VanillaJS*)
+ - Fast and reliable (*[100% test coverage](https://codeclimate.com/github/macie/smallstache/coverage)*)
+ - Easly debuggable (*leaves original tag if can't find data*)
 
 ## Usage
 Typical usage:
@@ -28,7 +28,7 @@ You can also use an array as a data source:
 
 Or even a string!
 ```js
-var question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
+  var question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
   question.fill('kebab');
   // > 'Food with 5 letters: k...b'
 ```
@@ -44,4 +44,4 @@ var question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
     Returns a string with template filled by an object, an array or a string. 
 
 ## License
-MIT
+[MIT](./LICENSE)
