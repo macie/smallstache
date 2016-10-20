@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": [
     "smallstache",
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "npm run bundle && npm run compress",
     "bundle": "mkdirp ./dist && babel --plugins babel-plugin-add-module-exports,transform-es2015-modules-umd ./src/Smallstache.js > ./dist/smallstache.js",
-    "compress": "uglifyjs --compress --mangle --source-map=./dist/smallstache.js.map -- ./dist/smallstache.js > ./dist/smallstache.min.js",
+    "compress": "cd ./dist && uglifyjs --compress --mangle --source-map=./smallstache.js.map -- ./smallstache.js > ./smallstache.min.js && cd ../",
     "pretest": "mkdirp ./spec/src && node ./tools/test_loading_helper.js",
     "test": "istanbul cover '-x ./spec/*.Spec.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json",
     "posttest": "rimraf ./spec/src"
