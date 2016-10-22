@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": [
     "smallstache",
@@ -34,5 +34,5 @@
   "bugs": "https://github.com/macie/smallstache/issues",
   "author": "Maciej Żok",
   "license": "MIT",
-  "runkitExampleFilename": "examples/usage-node.js"
+  "runkitExample": "var Smallstache = require('smallstache');"
 }
