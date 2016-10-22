@@ -10,7 +10,7 @@ A lightweight, logic-less JavaScript [template engine](https://en.wikipedia.org/
  - Very small footprint
  - No dependencies (*only good old VanillaJS*)
  - Fast and reliable (*[100% test coverage](https://codeclimate.com/github/macie/smallstache/coverage)*)
- - Easly debuggable (*leaves original tag if can't find data*)
+ - Easily debuggable (*leaves original tag if can't find data*)
 
 ## Usage
 Typical usage:
