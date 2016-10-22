@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": [
     "smallstache",
@@ -33,5 +33,6 @@
   "repository": "https://github.com/macie/smallstache.git",
   "bugs": "https://github.com/macie/smallstache/issues",
   "author": "Maciej Żok",
-  "license": "MIT"
+  "license": "MIT",
+  "runkitExampleFilename": "examples/usage-node.js"
 }
