@@ -4,6 +4,11 @@ env:
 language: node_js
 node_js:
   - "6"
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
