@@ -1,4 +1,4 @@
-var Smallstache = require('./src/smallstache.js');
+import Smallstache from '../src/Smallstache';
 
 describe('A Smallstache', function() {
     it('should take string source', function() {

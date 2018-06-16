@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": [
     "smallstache",
@@ -11,21 +11,22 @@
   "main": "dist/smallstache.js",
   "scripts": {
     "build": "npm run bundle && npm run compress",
-    "bundle": "mkdirp ./dist && babel --plugins babel-plugin-add-module-exports,transform-es2015-modules-umd ./src/Smallstache.js > ./dist/smallstache.js",
-    "compress": "cd ./dist && uglifyjs --compress --mangle --source-map=./smallstache.js.map -- ./smallstache.js > ./smallstache.min.js && cd ../",
-    "pretest": "mkdirp ./spec/src && node ./tools/test_loading_helper.js",
-    "test": "istanbul cover '-x ./spec/*.Spec.js' jasmine JASMINE_CONFIG_PATH=spec/jasmine.json",
-    "posttest": "rimraf ./spec/src"
+    "bundle": "mkdirp ./dist && babel ./src/Smallstache.js > ./dist/smallstache.js",
+    "compress": "cd ./dist && uglifyjs ./smallstache.js --compress --mangle --output smallstache.min.js --source-map \"filename='./smallstache.js.map',url='./smallstache.js.map'\" && cd ../",
+    "test": "jest --coverage"
   },
   "devDependencies": {
-    "babel-cli": "6.16.x",
+    "babel-cli": "6.26.x",
+    "babel-core": "6.26.x",
+    "babel-jest": "23.0.x",
     "babel-plugin-add-module-exports": "0.2.x",
-    "babel-plugin-transform-es2015-modules-umd": "6.12.x",
-    "istanbul": "0.4.x",
-    "jasmine": "2.5.x",
+    "babel-plugin-transform-es2015-modules-umd": "6.24.x",
+    "babel-preset-env": "1.7.x",
+    "jest": "23.1.x",
     "mkdirp": "0.5.x",
-    "rimraf": "2.5.x",
-    "uglify-js": "2.7.x"
+    "nyc": "12.0.x",
+    "regenerator-runtime": "0.11.x",
+    "uglify-js": "3.4.x"
   },
   "files": [
     "dist"
