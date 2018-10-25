@@ -22,9 +22,8 @@
     "babel-plugin-add-module-exports": "0.2.x",
     "babel-plugin-transform-es2015-modules-umd": "6.24.x",
     "babel-preset-env": "1.7.x",
-    "jest": "23.1.x",
+    "jest": "23.6.x",
     "mkdirp": "0.5.x",
-    "nyc": "12.0.x",
     "regenerator-runtime": "0.11.x",
     "uglify-js": "3.4.x"
   },

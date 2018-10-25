@@ -3,7 +3,7 @@ env:
     - CC_TEST_REPORTER_ID=8271cd5b775e9f1d136518997e7f73ea6fe1abf0745bff0fc907491eb063c204
 language: node_js
 node_js:
-  - "6"
+  - "node"
 cache:
   directories:
     - ~/.npm
@@ -14,6 +14,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - nyc --reporter=lcov npm test
+  - npm test
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
