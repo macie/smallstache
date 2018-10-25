@@ -18,13 +18,13 @@
   "devDependencies": {
     "babel-cli": "6.26.x",
     "babel-core": "6.26.x",
-    "babel-jest": "23.0.x",
-    "babel-plugin-add-module-exports": "0.2.x",
+    "babel-jest": "23.6.x",
+    "babel-plugin-add-module-exports": "1.0.x",
     "babel-plugin-transform-es2015-modules-umd": "6.24.x",
     "babel-preset-env": "1.7.x",
     "jest": "23.6.x",
     "mkdirp": "0.5.x",
-    "regenerator-runtime": "0.11.x",
+    "regenerator-runtime": "0.12.x",
     "uglify-js": "3.4.x"
   },
   "files": [
