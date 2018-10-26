@@ -16,12 +16,12 @@
     "test": "jest --coverage"
   },
   "devDependencies": {
-    "babel-cli": "6.26.x",
-    "babel-core": "6.26.x",
+    "@babel/cli": "7.1.x",
+    "@babel/core": "7.1.x",
+    "@babel/plugin-transform-modules-umd": "7.1.x",
+    "@babel/preset-env": "7.1.x",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "23.6.x",
-    "babel-plugin-add-module-exports": "1.0.x",
-    "babel-plugin-transform-es2015-modules-umd": "6.24.x",
-    "babel-preset-env": "1.7.x",
     "jest": "23.6.x",
     "mkdirp": "0.5.x",
     "regenerator-runtime": "0.12.x",
