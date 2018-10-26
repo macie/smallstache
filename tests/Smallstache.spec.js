@@ -1,99 +1,105 @@
 import Smallstache from '../src/Smallstache';
 
-describe('A Smallstache', function() {
-    it('should take string source', function() {
-        var source = 'Once upon the {{ time }}...';
+describe('A Smallstache', () => {
+    it('should take string source', () => {
+        const source = 'Once upon the {{ time }}...';
 
-        var template = new Smallstache(source);
+        let template = new Smallstache(source);
 
         expect(template.source).toEqual(source);
     });
 
-    describe('should throw TypeError when template source', function() {
-        it('is undefined', function() {
-            var template = function() {new Smallstache()};
+    describe('should throw TypeError when template source', () => {
+        it('is undefined', () => {
+            function createTemplate() {
+                return new Smallstache();
+            }
 
-            expect(template).toThrowError(TypeError);
+            expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is null', function() {
-            var source = null;
+        it('is null', () => {
+            function createTemplate() {
+                const source = null;
+                return new Smallstache(source);
+            }
 
-            var template = function() {new Smallstache(source)};
-
-            expect(template).toThrowError(TypeError);
+            expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is number', function() {
-            var source = 123;
+        it('is number', () => {
+            function createTemplate() {
+                const source = 123;
+                return new Smallstache(source);
+            }
 
-            var template = function() {new Smallstache(source)};
-
-            expect(template).toThrowError(TypeError);
+            expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is array', function() {
-            var source = [1, '2', {}];
+        it('is array', () => {
+            function createTemplate() {
+                const source = [1, '2', {}];
+                return new Smallstache(source);
+            }
 
-            var template = function() {new Smallstache(source)};
-
-            expect(template).toThrowError(TypeError);
+            expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is object', function() {
-            var source = {};
+        it('is object', () => {
+            function createTemplate() {
+                const source = {};
+                return new Smallstache(source);
+            }
 
-            var template = function() {new Smallstache(source)};
-
-            expect(template).toThrowError(TypeError);
+            expect(createTemplate).toThrowError(TypeError);
         });
     });
 
-    describe('should fill', function() {
-        var template = new Smallstache('');
+    describe('should fill', () => {
+        let template = new Smallstache('');
 
-        it('template with text', function() {
+        it('template with text', () => {
             template.source = 'Do {{ who }} feel {{ how }}?';
-            var data = {who: 'I', how: 'lucky'};
+            let data = {who: 'I', how: 'lucky'};
 
-            var result = template.fill(data);
+            let result = template.fill(data);
 
             expect(result).toEqual('Do I feel lucky?');
         });
 
-        it('template with numbers', function() {
+        it('template with numbers', () => {
             template.source = 'e^{{ exp }} = {{ product }}';
-            var data = {exp: 0, product: 1.001};
+            let data = {exp: 0, product: 1.001};
 
-            var result = template.fill(data);
+            let result = template.fill(data);
 
             expect(result).toEqual('e^0 = 1.001');
         });
 
-        it('template with date', function() {
+        it('template with date', () => {
             template.source = 'Now is {{ now }}';
-            var now = new Date();
-            var date = {now: now};
+            let now = new Date();
+            let date = {now: now};
 
-            var result = template.fill(date);
+            let result = template.fill(date);
 
             expect(result).toEqual('Now is ' + now);
         });
 
-        it('template with whitespaces in tags', function() {
+        it('template with whitespaces in tags', () => {
             template.source = 'Ring-{{ say }}-{{say}}-{{say }}-{{  say}}eringe{{ say  }}!';
-            var fox = {say: 'ding'};
+            let fox = {say: 'ding'};
 
-            var result = template.fill(fox);
+            let result = template.fill(fox);
 
             expect(result).toEqual('Ring-ding-ding-ding-dingeringeding!');
         });
 
-        it('template with partial object', function() {
+        it('template with partial object', () => {
             template.source = '{{ sth }} ipsum {{ else }} sit {{ what }}';
-            var data = {sth: 'Lorem'};
+            let data = {sth: 'Lorem'};
 
-            var result = template.fill(data);
+            let result = template.fill(data);
 
             expect(result).toEqual('Lorem ipsum {{ else }} sit {{ what }}');
         });
