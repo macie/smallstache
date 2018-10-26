@@ -13,7 +13,8 @@
     "build": "npm run bundle && npm run compress",
     "bundle": "mkdirp ./dist && babel ./src/Smallstache.js > ./dist/smallstache.js",
     "compress": "cd ./dist && uglifyjs ./smallstache.js --compress --mangle --output smallstache.min.js --source-map \"filename='./smallstache.js.map',url='./smallstache.js.map'\" && cd ../",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "lint": "eslint src tests"
   },
   "devDependencies": {
     "@babel/cli": "7.1.x",
@@ -22,6 +23,7 @@
     "@babel/preset-env": "7.1.x",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "23.6.x",
+    "eslint": "5.6.x",
     "jest": "23.6.x",
     "mkdirp": "0.5.x",
     "regenerator-runtime": "0.12.x",
