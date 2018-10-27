@@ -1,13 +1,17 @@
-var Smallstache = require("smallstache");
+let console = require('console');
+let Smallstache = require('smallstache');
 
-var template = new Smallstache('Hello {{ something }}!');
-var obj = {something: 'World'};
+// object as a data source
+let template = new Smallstache('Hello {{ something }}!');
+const obj = {something: 'World'};
 console.log(template.fill(obj));
 
-var title = new Smallstache('{{0}}, {{1}} and {{2}}');
-var arr = ['Me', 'Myself', 'I'];
+// array as a data source
+let title = new Smallstache('{{0}}, {{1}} and {{2}}');
+const arr = ['Me', 'Myself', 'I'];
 console.log(title.fill(arr));
 
-var question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
-var str = 'kebab';
+// string as a data source
+let question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
+const str = 'kebab';
 console.log(question.fill(str));

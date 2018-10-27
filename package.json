@@ -30,11 +30,12 @@
     "uglify-js": "3.4.x"
   },
   "files": [
-    "dist"
+    "dist",
+    "examples"
   ],
   "repository": "https://github.com/macie/smallstache.git",
   "bugs": "https://github.com/macie/smallstache/issues",
   "author": "Maciej Żok",
   "license": "MIT",
-  "runkitExample": "var Smallstache = require('smallstache');"
+  "runkitExampleFilename": "./examples/usage-node.js"
 }
