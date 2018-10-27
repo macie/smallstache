@@ -3,26 +3,60 @@
     <head>
         <meta charset="utf-8">
         <title>Example of Smallstache usage</title>
+        <script src="https://cdn.jsdelivr.net/npm/smallstache@0.4.6/dist/smallstache.min.js"></script>
     </head>
     <body>
-        <p>look into browser console...</p>
+        <h1><a href="https://github.com/macie/smallstache">Smallstache.js</a></h1>
+        <p>(check out page source)</p>
 
-        <script src="https://cdn.jsdelivr.net/npm/smallstache@0.4.6/dist/smallstache.min.js"></script>
-        <script>
-            // object as a data source
-            let template = new Smallstache('Hello {{ something }}!');
-            const obj = {something: 'World'};
-            console.log(template.fill(obj));
+        <h2>Simple usage</h2>
+        <section>
+            <p>Look into browser console...</p>
+            <script>
+                // object as a data source
+                let template = new Smallstache('Hello {{ something }}!');
+                const obj = {something: 'World'};
+                console.log(template.fill(obj));
+    
+                // array as a data source
+                let title = new Smallstache('{{0}}, {{1}} and {{2}}');
+                const arr = ['Me', 'Myself', 'I'];
+                console.log(title.fill(arr));
+    
+                // string as a data source
+                let question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
+                const str = 'kebab';
+                console.log(question.fill(str));
+            </script>
+        </section>
 
-            // array as a data source
-            let title = new Smallstache('{{0}}, {{1}} and {{2}}');
-            const arr = ['Me', 'Myself', 'I'];
-            console.log(title.fill(arr));
+        <h2>Advanced usage</h2>
+        <section>
+            <p>List generated from <strong>template</strong> HTML tag:</p>
 
-            // string as a data source
-            let question = new Smallstache('Food with 5 letters: {{0}}...{{4}}');
-            const str = 'kebab';
-            console.log(question.fill(str));
-        </script>
+            <select class="list"></select>
+            <template class="list_item">
+                <option value="{{ value }}">{{ description }}</option>
+            </template>
+
+            <script>
+                let list = document.querySelector('.list');
+                let templateSrc = document.querySelector('template.list_item').innerHTML;
+                let items = [
+                    {value: 0, description: ''},
+                    {value: 1, description: 'Bicycle'},
+                    {value: 2, description: 'Car'},
+                    {value: 3, description: 'Bus'},
+                    {value: 4, description: 'Train'}
+                ];
+
+                let optionTemplate = new Smallstache(templateSrc);
+                for (let item of items) {
+                    let option = optionTemplate.fill(item);
+                    list.insertAdjacentHTML('beforeend', option);
+                }
+            </script>
+        </section>
+
     </body>
 </html>
