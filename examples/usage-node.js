@@ -1,5 +1,5 @@
 let console = require('console');
-let Smallstache = require('smallstache');
+let Smallstache = require('smallstache').default;
 
 // object as a data source
 let template = new Smallstache('Hello {{ something }}!');
