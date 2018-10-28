@@ -33,6 +33,8 @@ Or even a string!
   // > 'Food with 5 letters: k...b'
 ```
 
+More examples of using __Smallstache__ (with _node_ and web browser) you can find in `examples` directory.
+
 ## API
 
  *  `new Smallstache(string)`
