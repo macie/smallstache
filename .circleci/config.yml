@@ -1,0 +1,26 @@
+version: 2.1  # https://circleci.com/docs/2.0/configuration-reference
+
+jobs:  # https://circleci.com/docs/2.0/configuration-reference/#jobs
+  build:
+    environment:
+      CC_TEST_REPORTER_ID: 8271cd5b775e9f1d136518997e7f73ea6fe1abf0745bff0fc907491eb063c204
+    docker:  # https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+      - image: cimg/node:19.0.1
+    steps:  # https://circleci.com/docs/2.0/configuration-reference/#steps
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            npm install
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            ./cc-test-reporter before-build
+            npm test
+            ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
+
