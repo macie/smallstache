@@ -1,6 +1,6 @@
 {
   "name": "smallstache",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Lightweight template engine similar to Mustache/Handlebars.",
   "keywords": [
     "smallstache",
@@ -17,18 +17,18 @@
     "lint": "eslint src tests"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.x",
-    "@babel/core": "7.1.x",
-    "@babel/plugin-transform-modules-umd": "7.1.x",
-    "@babel/preset-env": "7.1.x",
+    "@babel/cli": "7.19.x",
+    "@babel/core": "7.20.x",
+    "@babel/plugin-transform-modules-umd": "7.18.x",
+    "@babel/preset-env": "7.20.x",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "23.6.x",
-    "eslint": "5.6.x",
-    "jest": "23.6.x",
-    "mkdirp": "0.5.x",
+    "babel-jest": "29.3.x",
+    "eslint": "8.28.x",
+    "jest": "29.3.x",
+    "mkdirp": "1.0.x",
     "npm-check-updates": "^16.4.1",
-    "regenerator-runtime": "0.12.x",
-    "uglify-js": "3.4.x"
+    "regenerator-runtime": "0.13.x",
+    "uglify-js": "3.17.x"
   },
   "files": [
     "dist",

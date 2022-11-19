@@ -10,14 +10,13 @@
     factory(mod.exports);
     global.Smallstache = mod.exports;
   }
-})(this, function (_exports) {
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports.default = Smallstache;
-
+  _exports["default"] = Smallstache;
   /*
       Smallstache - a JavaScript template engine.
   
@@ -34,9 +33,9 @@
     if (typeof source !== 'string') {
       throw new TypeError('Template source must be a string');
     }
-
     this.source = source;
   }
+
   /*
       Fill template with data object.
   
@@ -46,13 +45,10 @@
       Returns:
           A string with tags replaced by corresponding data.
   */
-
-
   Smallstache.prototype.fill = function (data) {
     function fillTemplate(tag, name) {
       return data[name] != null ? data[name] : tag;
     }
-
     return this.source.replace(/{{\s*([^}\s]+)\s*}}/g, fillTemplate);
   };
 });
