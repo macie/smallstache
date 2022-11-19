@@ -26,6 +26,7 @@
     "eslint": "5.6.x",
     "jest": "23.6.x",
     "mkdirp": "0.5.x",
+    "npm-check-updates": "^16.4.1",
     "regenerator-runtime": "0.12.x",
     "uglify-js": "3.4.x"
   },
