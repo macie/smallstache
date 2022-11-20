@@ -1,8 +1,10 @@
 # Smallstache
 
+[![npm](https://img.shields.io/npm/v/smallstache)](https://www.npmjs.com/package/smallstache)
 [![Build Status](https://dl.circleci.com/status-badge/img/gh/macie/smallstache/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/macie/smallstache/tree/master)
-[![Test Coverage](https://codeclimate.com/github/macie/smallstache/badges/coverage.svg)](https://codeclimate.com/github/macie/smallstache/coverage)
+[![Coverage Status](https://coveralls.io/repos/github/macie/smallstache/badge.svg?branch=master)](https://coveralls.io/github/macie/smallstache?branch=master)
 [![Code Climate](https://codeclimate.com/github/macie/smallstache/badges/gpa.svg)](https://codeclimate.com/github/macie/smallstache)
+[![License](https://img.shields.io/github/license/macie/smallstache)](https://tldrlegal.com/license/mit-license)
 
 A lightweight, logic-less JavaScript [template engine](https://en.wikipedia.org/wiki/Web_template_system) similar to [Mustache](https://mustache.github.io/)/[Handlebars](http://handlebarsjs.com/). And look mummy, it has only 0.5kB minimized!
 
@@ -12,7 +14,7 @@ A lightweight, logic-less JavaScript [template engine](https://en.wikipedia.org/
 - Very small footprint
 - No dependencies (*only good old VanillaJS*)
 - Fast and reliable (*[100% test coverage](https://codeclimate.com/github/macie/smallstache/coverage)*)
-- Easily debuggable (*leaves original tag if can't find data*)
+- Easily debuggable (*leaves original tag if couldn't find data*)
 
 ## Usage
 
@@ -54,4 +56,4 @@ More examples of using __Smallstache__ (with _node_ and web browser) you can fin
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](./LICENSE) ([explanation in simple words](https://tldrlegal.com/license/mit-license))

@@ -23,6 +23,7 @@
     "@babel/preset-env": "7.20.x",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "29.3.x",
+    "coveralls": "3.1.x",
     "eslint": "8.28.x",
     "jest": "29.3.x",
     "mkdirp": "1.0.x",
