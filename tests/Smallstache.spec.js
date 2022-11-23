@@ -1,16 +1,16 @@
 import Smallstache from '../src/Smallstache';
 
 describe('A Smallstache', () => {
-    it('should take string source', () => {
+    it('should use string template', () => {
         const source = 'Once upon the {{ time }}...';
 
-        let template = new Smallstache(source);
+        const template = new Smallstache(source);
 
         expect(template.source).toEqual(source);
     });
 
-    describe('should throw TypeError when template source', () => {
-        it('is undefined', () => {
+    describe('should throw TypeError when template source is', () => {
+        it('undefined', () => {
             function createTemplate() {
                 return new Smallstache();
             }
@@ -18,7 +18,7 @@ describe('A Smallstache', () => {
             expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is null', () => {
+        it('null', () => {
             function createTemplate() {
                 const source = null;
                 return new Smallstache(source);
@@ -27,7 +27,7 @@ describe('A Smallstache', () => {
             expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is number', () => {
+        it('number', () => {
             function createTemplate() {
                 const source = 123;
                 return new Smallstache(source);
@@ -36,7 +36,7 @@ describe('A Smallstache', () => {
             expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is array', () => {
+        it('array', () => {
             function createTemplate() {
                 const source = [1, '2', {}];
                 return new Smallstache(source);
@@ -45,7 +45,7 @@ describe('A Smallstache', () => {
             expect(createTemplate).toThrowError(TypeError);
         });
 
-        it('is object', () => {
+        it('object', () => {
             function createTemplate() {
                 const source = {};
                 return new Smallstache(source);
@@ -55,53 +55,72 @@ describe('A Smallstache', () => {
         });
     });
 
-    describe('should fill', () => {
-        let template = new Smallstache('');
+    describe('should fill template with', () => {
+        it('text', () => {
+            const template = new Smallstache('Do {{ who }} feel {{ how }}?');
+            const data = {who: 'I', how: 'lucky'};
 
-        it('template with text', () => {
-            template.source = 'Do {{ who }} feel {{ how }}?';
-            let data = {who: 'I', how: 'lucky'};
-
-            let result = template.fill(data);
+            const result = template.fill(data);
 
             expect(result).toEqual('Do I feel lucky?');
         });
 
-        it('template with numbers', () => {
-            template.source = 'e^{{ exp }} = {{ product }}';
-            let data = {exp: 0, product: 1.001};
+        it('numbers', () => {
+            const template = new Smallstache('e^{{ exp }} = {{ product }}');
+            const data = {exp: 0, product: 1.001};
 
-            let result = template.fill(data);
+            const result = template.fill(data);
 
             expect(result).toEqual('e^0 = 1.001');
         });
 
-        it('template with date', () => {
-            template.source = 'Now is {{ now }}';
-            let now = new Date();
-            let date = {now: now};
+        it('date', () => {
+            const template = new Smallstache('Now is {{ now }}');
+            const now = new Date();
+            const date = {now: now};
 
-            let result = template.fill(date);
+            const result = template.fill(date);
 
             expect(result).toEqual('Now is ' + now);
         });
 
-        it('template with whitespaces in tags', () => {
-            template.source = 'Ring-{{ say }}-{{say}}-{{say }}-{{  say}}eringe{{ say  }}!';
-            let fox = {say: 'ding'};
-
-            let result = template.fill(fox);
-
-            expect(result).toEqual('Ring-ding-ding-ding-dingeringeding!');
-        });
-
-        it('template with partial object', () => {
-            template.source = '{{ sth }} ipsum {{ else }} sit {{ what }}';
-            let data = {sth: 'Lorem'};
+        it('partial object', () => {
+            const template = new Smallstache('{{ sth }} ipsum {{ else }} sit {{ what }}');
+            const data = {sth: 'Lorem'};
 
             let result = template.fill(data);
 
             expect(result).toEqual('Lorem ipsum {{ else }} sit {{ what }}');
         });
     });
+
+    describe('should deal with template which has', () => {
+        it('tags with no/multiple whitespaces', () => {
+            const template = new Smallstache('Ring-{{ say }}-{{say}}-{{say }}-{{  say}}eringe{{ say  }}!');
+            const fox = {say: 'ding'};
+
+            let result = template.fill(fox);
+
+            expect(result).toEqual('Ring-ding-ding-ding-dingeringeding!');
+        });
+
+        it('nested braces', () => {
+            const template = new Smallstache('This is so {{{{ wrong }}}}');
+            const data = {wrong: 'good'};
+
+            const result = template.fill(data);
+
+            expect(result).toEqual('This is so {{good}}');
+        });
+
+        it('unbalanced braces', () => {
+            const template = new Smallstache('Something went {{{{{ how }}');
+            const data = {how: 'wrong'};
+
+            const result = template.fill(data);
+
+            expect(result).toEqual('Something went {{{wrong');
+        });
+    });
 });
+
