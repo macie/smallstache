@@ -49,7 +49,7 @@
     function fillTemplate(tag, name) {
       return data[name] != null ? data[name] : tag;
     }
-    return this.source.replace(/{{\s*([^}\s]+)\s*}}/g, fillTemplate);
+    return this.source.replace(/{{\s*([^{}\s]+)\s*}}/g, fillTemplate);
   };
 });
 
