@@ -88,9 +88,18 @@ describe('A Smallstache', () => {
             const template = new Smallstache('{{ sth }} ipsum {{ else }} sit {{ what }}');
             const data = {sth: 'Lorem'};
 
-            let result = template.fill(data);
+            const result = template.fill(data);
 
             expect(result).toEqual('Lorem ipsum {{ else }} sit {{ what }}');
+        });
+
+        it('flat object', () => {
+            const template = new Smallstache('{{ x.a }} + {{ x.b }} = {{ c }}');
+            const data = {x: {a: 'sth', b: 'other'}, 'x.b': 2, c: 3};
+
+            const result = template.fill(data);
+
+            expect(result).toEqual('{{ x.a }} + 2 = 3');
         });
     });
 
